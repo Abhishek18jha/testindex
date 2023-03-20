@@ -1,44 +1,87 @@
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
+import Paper from '@mui/material/Paper'
 
 
 
+function range(start,end){
+  var ans=[];
+  for(let i=start;i<=end;i++){
+    ans.push(i);
+  }
+  return ans
+}
 
-
-
-
+const elevated =range(1,24);
+const outlined =range(1,1);
+console.log()
 const  App = ()=>{
   return (
     <div>
-    <Typography variant="h1" color="initial">Button Types</Typography>
-    <Typography 
-    sx={{display:"flex",
-    flexDirection:"row",
-    margin:"20px",
-    gap:"20px"
-    ,flexWrap:"wrap"
-}}
-    variant="div" color="initial">
+  <Typography sx={{textAlign:"left" ,display:"block"}} variant="h4" color="initial">Elevated Papers</Typography>
 
+   <Box
+    sx={{
     
-    <Button variant='contained'>Button</Button>
-    <Button variant='text'>Text</Button>
-    <Button variant='outlined'>Outlined</Button>
-    <Button variant="text"  color="primary" disabled> Disabled</Button>
-    <Button href='http://www.google.com' variant="text" color="primary"> Google </Button>
-    <Button variant="contained" color="success" disableElevation>
-      Disable elevation
-    </Button>    
-    <Button variant="outlined" href="#outlined" color="primary">
-      Outlined Link Button
-    </Button>
-    </Typography>
-    <Typography variant="div" color="initial">
-      <Box display="" mx="" my="" sx="">
-        
-      </Box>
-    </Typography>
+      display:'flex',
+      justifyContent:"space-between",
+      textAlign:"center",
+      flexWrap:'wrap',
+      '& > :not(style)': {
+        m: 1,
+        width: 128,
+        height: 128,}
+    }} >
+      {elevated.map((e)=>
+       <Paper sx={{textAlign:"center",justifyContent:"center",margin:"auto"}} variant="elevation" elevation ={e}> {`Elevation is ${e}`}</Paper>
+      )}
+      
+   
+   </Box>
+   <Typography sx={{textAlign:"left" ,display:"block"}} variant="h4" color="initial">Oulined Papers</Typography>
+
+   <Box
+    sx={{
+    
+      display:'flex',
+      justifyContent:"space-between",
+      textAlign:"center",
+      flexWrap:'wrap',
+      '& > :not(style)': {
+        m: 1,
+        width: 128,
+        height: 128,}
+    }} >
+      {outlined.map((e)=>
+       <Paper sx={{textAlign:"center",justifyContent:"center",margin:"auto"}} variant="outlined" square> {`Outlined Square Papers Id ${e}`}</Paper>
+      )}
+      
+   
+   </Box>
+   <Typography sx={{textAlign:"left" ,display:"block"}} variant="h4" color="initial">Oulined Papers Round Corners</Typography>
+
+   <Box
+    sx={{
+    
+      display:'flex',
+      justifyContent:"space-between",
+      textAlign:"center",
+      flexWrap:'wrap',
+      '& > :not(style)': {
+        m: 1,
+        width: 128,
+        height: 128,}
+    }} >
+      {outlined.map((e)=>
+       <Paper sx={{textAlign:"center",justifyContent:"center",margin:"auto"}} variant="outlined" > {`Outlined Square Papers Id ${e}`}</Paper>
+      )}
+      
+   
+   </Box>
+     
+    
+   
     </div>  
   )
  }
